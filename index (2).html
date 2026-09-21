@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BELLADONAE | Natural Beauty & Botanical Products</title>
+<style>
+  html, body { margin:0; padding:0; height:100%; background:#F5EFE3; }
+  iframe { width:100%; height:100%; border:0; display:block; }
+</style>
+</head>
+<body>
+  <!-- Ganti URL di bawah ini kalau link situs Belladonae berubah -->
+  <iframe id="belladonaeFrame" src="https://claude.ai/artifact/3TZ4yvpmrXUnJgXHaFcALC" title="Belladonae Website"></iframe>
+
+  <script>
+    var TARGET_URL = "https://claude.ai/artifact/3TZ4yvpmrXUnJgXHaFcALC";
+    var frame = document.getElementById("belladonaeFrame");
+    var loaded = false;
+
+    frame.addEventListener("load", function () {
+      // Kalau iframe berhasil dimuat dan tidak diblokir, tandai sebagai berhasil.
+      try {
+        // Mengakses contentWindow dari domain lain akan gagal (itu wajar, karena beda domain).
+        // Kita hanya menandai "loaded" — pemblokiran nyata biasanya membuat event 'load'
+        // tetap terpanggil tapi halaman tampak kosong, makanya kita beri fallback timer juga.
+        loaded = true;
+      } catch (e) {}
+    });
+
+    // Fallback: jika dalam 2.5 detik iframe tampak tidak menampilkan apa pun
+    // (halaman blank karena diblokir kebijakan keamanan), alihkan langsung ke URL asli.
+    setTimeout(function () {
+      if (!loaded) {
+        window.location.href = TARGET_URL;
+      }
+    }, 2500);
+  </script>
+</body>
+</html>
